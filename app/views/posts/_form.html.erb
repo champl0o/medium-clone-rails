@@ -12,11 +12,6 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
     <%= form.label :title %>
     <%= form.text_field :title %>
   </div>
@@ -29,4 +24,6 @@
   <div class="actions">
     <%= form.submit %>
   </div>
+
+  <%= link_to "Home", root_path, class: "return-inline" %>
 <% end %>

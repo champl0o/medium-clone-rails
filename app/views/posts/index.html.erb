@@ -12,6 +12,13 @@
         <%= link_to 'Destroy', post, method: :delete, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
         <%= link_to 'New Post', new_post_path, class: "btn btn-primary" %>
       </div>
+      <div class="card-footer">
+        <ul class="list-inline">
+          <% post.tags.each do |tag| %>
+              <li class="list-inline-item"><%= tag.title %> </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
     <% end %>
 <br>

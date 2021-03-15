@@ -11,7 +11,7 @@ class PostsController < ApplicationController
       redirect_to root_path and return
     else
       @parameter = params[:search].downcase
-      @results = Post.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+      @results = Post.search_result(@parameter)
     end
   end
 

@@ -6,6 +6,15 @@ class PostsController < ApplicationController
     @posts = Post.all.order(:created_at)
   end
 
+  def search
+    if params[:search].blank?
+      redirect_to root_path and return
+    else
+      @parameter = params[:search].downcase
+      @results = Post.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+    end
+  end
+
   # GET /posts/1 or /posts/1.json
   def show
   end

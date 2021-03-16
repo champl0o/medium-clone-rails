@@ -1,0 +1,36 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :title %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
+    <%= form.label :content %>
+    <%= form.text_area :content, class: "form-control" %>
+  </div>
+
+  <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :title) do |b| %>
+  <div class="field form-group">
+    <%= b.check_box class: "checkbox-container" %>
+    <%= b.label class: "checkbox-container" %> 
+  </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+  <%= link_to "Home", root_path, class: "return-inline" %>
+<% end %>

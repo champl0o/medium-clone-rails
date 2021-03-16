@@ -21,7 +21,9 @@
     <%= form.text_area :content, class: "form-control" %>
   </div>
 
-      <%= collection_check_boxes :post, :tag_ids, Tag.all, :id, :title, {:item_wrapper_class => 'checkbox_container'} %>
+  <div class="field form-check">
+      <%= collection_check_boxes :post, :tag_ids, Tag.all, :id, :title %>
+  </div>
 
   <div class="actions">
     <%= form.submit %>

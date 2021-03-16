@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Tag.create(title: "Rails")
 Tag.create(title: "Ruby")
+Tag.create(title: "Django")
+Tag.create(title: "React")

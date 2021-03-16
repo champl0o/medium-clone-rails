@@ -12,9 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2021_03_15_133312) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "posts", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -23,8 +20,8 @@ ActiveRecord::Schema.define(version: 2021_03_15_133312) do
   end
 
   create_table "posts_tags", id: false, force: :cascade do |t|
-    t.bigint "post_id", null: false
-    t.bigint "tag_id", null: false
+    t.integer "post_id", null: false
+    t.integer "tag_id", null: false
     t.index ["post_id", "tag_id"], name: "index_posts_tags_on_post_id_and_tag_id"
     t.index ["tag_id", "post_id"], name: "index_posts_tags_on_tag_id_and_post_id"
   end

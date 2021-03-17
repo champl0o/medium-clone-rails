@@ -14,7 +14,9 @@
   <div class="card-footer">
     <ul class="list-inline">
       <% post.tags.each do |tag| %>
-          <li class="list-inline-item"><%= tag.title %> </li>
+          <li class="list-inline-item">
+            <%= link_to tag.title, filter_path(tag_title: tag.title)%>
+          </li>
       <% end %>
     </ul>
   </div>

@@ -12,6 +12,10 @@
   <% end %>
 
   <div class="field form-group">
+    <%= form.text_field :user_id, id: :post_user_id, value: current_user.id, type: :hidden, class: "form-control" %>
+  </div>
+
+  <div class="field form-group">
     <%= form.label :title %>
     <%= form.text_field :title, class: "form-control" %>
   </div>
@@ -22,10 +26,10 @@
   </div>
 
   <%= collection_check_boxes(:post, :tag_ids, Tag.all, :id, :title) do |b| %>
-  <div class="field form-group">
-    <%= b.check_box class: "checkbox-container" %>
-    <%= b.label class: "checkbox-container" %> 
-  </div>
+    <div class="field form-group">
+      <%= b.check_box class: "checkbox-container" %>
+      <%= b.label class: "checkbox-container" %> 
+    </div>
   <% end %>
 
   <div class="actions">

@@ -8,6 +8,8 @@
   <div class="card-body">
     <h5 class="card-title"><%= @post.title %></h5>
     <p class="card-text"><%= @post.content %></p>
+    <%= link_to 'Like', post_likes_path(@post), method: :post, class: "btn btn-info" %>
+    <p><%= @post.likes.count %> <%= (@post.likes.count) == 1 ? 'Like' : 'Likes'%></p>
     <%= link_to 'Show', @post, class: "btn btn-primary" %>
     <%= link_to 'Edit', edit_post_path(@post), class: "btn btn-primary" %>
     <%= link_to 'Destroy', @post, method: :delete, class: "btn btn-primary", data: { confirm: 'Are you sure?' } %>
@@ -27,18 +29,8 @@
     <%= render @post.comments %>
 
     <h2>Add a comment:</h2>
-    <%= form_with model: [ @post, @post.comments.build ] do |form| %>
-      <p class="field form-group">
-        <%= form.text_field :user_id, id: :comment_user_id, type: :hidden, value: current_user.id, class: "form-control" %>
-      </p>
-      <p class="field form-group">
-        <%= form.label "Write your comment" %>
-        <%= form.text_area :body, class: "form-control" %>
-      </p>
-      <p class="field form-group">
-        <%= form.submit %>
-      </p>
-    <% end %>
+    <%= render "comments/form" %>
+
   </div>
 </div>
 <br>

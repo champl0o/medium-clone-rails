@@ -21,6 +21,24 @@
           </li>
       <% end %>
     </ul>
+    <hr>
+
+    <h2>Comments</h2>
+    <%= render @post.comments %>
+
+    <h2>Add a comment:</h2>
+    <%= form_with model: [ @post, @post.comments.build ] do |form| %>
+      <p class="field form-group">
+        <%= form.text_field :user_id, id: :comment_user_id, type: :hidden, value: current_user.id, class: "form-control" %>
+      </p>
+      <p class="field form-group">
+        <%= form.label "Write your comment" %>
+        <%= form.text_area :body, class: "form-control" %>
+      </p>
+      <p class="field form-group">
+        <%= form.submit %>
+      </p>
+    <% end %>
   </div>
 </div>
 <br>

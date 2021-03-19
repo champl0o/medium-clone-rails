@@ -1,0 +1,11 @@
+<div class="search-results-container">
+    <h1>Search results</h1>
+
+    <% if @results.any? %>
+        <% @results.each do |result| %>
+            <h3><%= link_to result.title.to_s, result %></h3>
+        <% end %>
+    <% else %>
+        <h3>Sorry, we've found nothing. Try again. Maybe you need to fix some typos?</h3>
+    <% end %>
+</div>

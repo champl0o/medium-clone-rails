@@ -15,6 +15,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def filter
+    @results = Post.filter_posts_by_tags(params[:tag_title])
+  end
+
   # GET /posts/1 or /posts/1.json
   def show
   end

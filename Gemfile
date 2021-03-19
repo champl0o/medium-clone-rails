@@ -11,6 +11,8 @@ gem 'sqlite3', group: :development
 gem 'pg', group: :production
 
 gem 'will_paginate', '~> 3.1.0'
+
+gem 'devise'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets

@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
 <div class="card">
+  <div class="card-header">
+    <h5 class="text-muted">By <%= @post.user.email %></h5>
+    <h6 class="text-muted">Created at <%= @post.created_at.strftime("%Y-%m-%d") %></h6>
+  </div>
   <div class="card-body">
     <h5 class="card-title"><%= @post.title %></h5>
     <p class="card-text"><%= @post.content %></p>
